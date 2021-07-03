@@ -1,9 +1,33 @@
 <resources>
     <string name="app_name">Synpulse Front End Challenge</string>
+
+    <string name="profile">Profile</string>
+    <string name="enter">Enter</string>
+    <string name="register">register</string>
+    <string name="submit">submit</string>
+    <string name="reload">Send New OTP</string>
+
     <string name="sign_in">Sign In</string>
+    <string name="sign_in_to">Sign In to Your Account</string>
+    <string name="sign_in_copytext">enter your phone number to get signed in to your account</string>
+
     <string name="sign_up">Sign Up</string>
+    <string name="sign_up_now">Sign Up Now</string>
+    <string name="sign_up_copytext">register your username and phone number to get access to the latest information of financial instruments</string>
+
     <string name="sign_out">Sign Out</string>
 
+    <string name="phone_no">Your Phone Number</string>
+    <string name="username">Your Username</string>
+
     <string name="about"><u>About</u></string>
+    <string name="about_title_toolbar">About</string>
+
+    <string name="otp_send">Your OTP is being Send</string>
+    <string name="otp_copytext">check your SMS to get your OTP number and submit it to the field below</string>
+    <string name="otp_no">Your OTP Number</string>
+
+    <string name="dashboard_title_toolbar">Dashboard</string>
+    <string name="portfolio_title_toolbar">Portfolio</string>
 
 </resources>
