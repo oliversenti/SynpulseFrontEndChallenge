@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import com.haryop.synpulsefrontendchallenge.databinding.ActivitySplashScreenBinding
 import com.haryop.synpulsefrontendchallenge.utils.BaseActivityBinding
+import com.haryop.synpulsefrontendchallenge.utils.ConstantsObj
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -25,6 +26,7 @@ class SplashScreenActivity: BaseActivityBinding<ActivitySplashScreenBinding>() {
         activityScope.launch {
             delay(2000)
             var intent = Intent(this@SplashScreenActivity, LandingActivity::class.java)
+            intent.putExtra(ConstantsObj.KEY_TARGET_ACTIVITY, ConstantsObj.VALUE_TITLESCREEN_ACTIVITY)
             startActivity(intent)
             finish()
         }

@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/ToolbarTheme" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
 
@@ -23,7 +24,7 @@
         android:id="@+id/nav_host_signinup_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/signinup_nav_graph"
+        app:navGraph="@navigation/titlescreen_nav_graph"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

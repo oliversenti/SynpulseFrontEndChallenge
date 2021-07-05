@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/titlescreen_nav_graph"
+    app:startDestination="@id/titlescreenFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.haryop.synpulsefrontendchallenge.ui.titlescreen.TitleScreenFragment"
+        android:label="titlescreen"
+        tools:layout="@layout/fragment_title_screen">
+        <action
+            android:id="@+id/action_tscreen_to_signin"
+            app:destination="@id/signinFragment" />
+        <action
+            android:id="@+id/action_tscreen_to_signup"
+            app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_tscreen_to_about"
+            app:destination="@id/aboutFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/signinFragment"
+        android:name="com.haryop.synpulsefrontendchallenge.ui.titlescreen.SignInFragment"
+        android:label="Sign In"
+        tools:layout="@layout/fragment_signin">
+        <action
+            android:id="@+id/action_signin_to_signup"
+            app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_signin_to_otp"
+            app:destination="@id/otpFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.haryop.synpulsefrontendchallenge.ui.titlescreen.SignUpFragment"
+        android:label="Sign Up"
+        tools:layout="@layout/fragment_signup">
+        <action
+            android:id="@+id/action_signup_to_signin"
+            app:destination="@id/signinFragment" />
+        <action
+            android:id="@+id/action_signup_to_otp"
+            app:destination="@id/otpFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.haryop.synpulsefrontendchallenge.ui.titlescreen.OTPFragment"
+        android:label="Sign In"
+        tools:layout="@layout/fragment_otp"></fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.haryop.synpulsefrontendchallenge.AboutFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_about"></fragment>
+
+</navigation>

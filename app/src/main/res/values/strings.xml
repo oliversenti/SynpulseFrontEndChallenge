@@ -1,11 +1,18 @@
 <resources>
     <string name="app_name">Synpulse Front End Challenge</string>
 
+    <string name="synpulse">Synpulse</string>
+
+    <string name="welcome">Welcome</string>
     <string name="profile">Profile</string>
     <string name="enter">Enter</string>
     <string name="register">register</string>
     <string name="submit">submit</string>
     <string name="reload">Send New OTP</string>
+
+    <string name="detail">Detail</string>
+    <string name="follow">Follow</string>
+    <string name="followed">Followed</string>
 
     <string name="sign_in">Sign In</string>
     <string name="sign_in_to">Sign In to Your Account</string>
@@ -29,5 +36,12 @@
 
     <string name="dashboard_title_toolbar">Dashboard</string>
     <string name="portfolio_title_toolbar">Portfolio</string>
+
+    <string name="gainloss_title">Gainers and Lossers</string>
+    <string name="watchlist_title">Your Watchlist</string>
+
+    <string name="search">Search</string>
+    <string name="search_copytext">Search your interests to follow on the NYSE/Nasdaq stock exchanges, learn more information about the stocks, and add them to your portfolio</string>
+
 
 </resources>

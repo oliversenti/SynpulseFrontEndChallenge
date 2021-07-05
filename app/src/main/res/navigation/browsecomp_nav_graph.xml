@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/browsecomp_nav_graph"
+    app:startDestination="@id/browseCompanyFragment">
+
+    <fragment
+        android:id="@+id/browseCompanyFragment"
+        android:name="com.haryop.synpulsefrontendchallenge.ui.companylist.BrowseCompanyFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_browse_company">
+        <action
+            android:id="@+id/action_itemcompany_to_detail"
+            app:destination="@id/companyDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/companyDetailFragment"
+        android:name="com.haryop.synpulsefrontendchallenge.ui.companylist.CompanyDetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_company_detail"></fragment>
+
+</navigation>

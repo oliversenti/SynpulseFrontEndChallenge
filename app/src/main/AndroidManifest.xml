@@ -23,7 +23,7 @@
         <activity
             android:name=".LandingActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.SplashScreen">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -38,17 +38,8 @@
         </activity>
 
         <activity
-            android:name=".AboutActivity"
+            android:name=".ui.companylist.BrowseCompanyFragment"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".ui.signinup.SignInUpActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

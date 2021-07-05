@@ -19,7 +19,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class MainActivity : BaseActivityBinding<ActivityMainBinding>() {
+class MainFragment : BaseActivityBinding<ActivityMainBinding>() {
     override val bindingInflater: (LayoutInflater) -> ActivityMainBinding
         get() = ActivityMainBinding::inflate
 
@@ -55,12 +55,12 @@ class MainActivity : BaseActivityBinding<ActivityMainBinding>() {
     }
 
     fun openAboutActivity() {
-        var intent = Intent(this@MainActivity, AboutFragment::class.java)
+        var intent = Intent(this@MainFragment, AboutFragment::class.java)
         startActivity(intent)
     }
 
     fun openBrowseFIActivity() {
-        var intent = Intent(this@MainActivity, BrowseCompanyFragment::class.java)
+        var intent = Intent(this@MainFragment, BrowseCompanyFragment::class.java)
         startActivity(intent)
     }
 
@@ -109,4 +109,5 @@ class MainActivity : BaseActivityBinding<ActivityMainBinding>() {
             doubleBackToExitPressedOnce = false
         }
     }
+
 }

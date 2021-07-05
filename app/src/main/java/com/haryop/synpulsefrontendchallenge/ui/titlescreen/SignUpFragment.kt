@@ -1,4 +1,4 @@
-package com.haryop.synpulsefrontendchallenge.ui.signinup
+package com.haryop.synpulsefrontendchallenge.ui.titlescreen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -19,13 +19,10 @@ class SignUpFragment : BaseFragmentBinding<FragmentSignupBinding>() {
     }
 
     fun onSignIn() {
-        val navcontroller = findNavController()
-        val navgraph = findNavController().graph
-
-        if (navgraph.startDestination == R.id.signinFragment){
-            navcontroller.popBackStack()
+        if (findNavController().previousBackStackEntry?.destination?.id == R.id.signinFragment){
+            findNavController().popBackStack()
         }else{
-            navcontroller.navigate(R.id.action_signup_to_signin)
+            findNavController().navigate(R.id.action_signup_to_signin)
         }
     }
 
