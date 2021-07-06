@@ -4,14 +4,24 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.haryop.synpulsefrontendchallenge.R
-import com.haryop.synpulsefrontendchallenge.data.CompanyListItemData
 import com.haryop.synpulsefrontendchallenge.databinding.FragmentBrowseCompanyBinding
 import com.haryop.synpulsefrontendchallenge.ui.home.MainActivity
 import com.haryop.synpulsefrontendchallenge.utils.BaseFragmentBinding
+import com.haryop.synpulsefrontendchallenge.utils.Resource
+import com.haryop.synpulsefrontendchallenge.utils.hideKeyboard
+import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
+import java.util.*
+import kotlin.collections.ArrayList
 
+@AndroidEntryPoint
 class BrowseCompanyFragment : BaseFragmentBinding<FragmentBrowseCompanyBinding>(),
     CompanyListAdapter.CompanyItemListener {
 
@@ -31,6 +41,26 @@ class BrowseCompanyFragment : BaseFragmentBinding<FragmentBrowseCompanyBinding>(
         btnSubmit.visibility = View.VISIBLE
 
         setupRecyclerView()
+
+        viewbinding.searchField.text.clear()
+        viewModel.start("BA")
+        setupObservers()
+
+        onSearch()
+    }
+
+    fun onSearch() = with(viewbinding) {
+        searchField.setOnEditorActionListener() { v, actionId, event ->
+            when (actionId) {
+                EditorInfo.IME_ACTION_SEARCH -> {
+                    viewModel.start(searchField.text.toString())
+                    setupObservers()
+                    hideKeyboard()
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     fun openMainActivity() {
@@ -41,19 +71,39 @@ class BrowseCompanyFragment : BaseFragmentBinding<FragmentBrowseCompanyBinding>(
 
     private fun setupRecyclerView() = with(viewbinding) {
         adapter = CompanyListAdapter(this@BrowseCompanyFragment)
-
-        var items = ArrayList<CompanyListItemData>()
-        for(i in 0..9){
-            items.add(CompanyListItemData("MSFT", "Microsoft Company"))
-            items.add(CompanyListItemData("IBM", "International Business Machines Corporation"))
-            items.add(CompanyListItemData("AMZN", "Amazon.com Inc"))
-        }
-
-        adapter.setItems(items)
-
         recyclerviewCompanyList.layoutManager = LinearLayoutManager(requireContext())
         recyclerviewCompanyList.adapter = adapter
+    }
 
+    private val viewModel: SearchEndpointViewModel by viewModels()
+    private fun setupObservers() {
+        viewModel.getSearchEndpoint.observe(viewLifecycleOwner, Observer {
+            when (it.status) {
+                Resource.Status.SUCCESS -> {
+                    viewbinding.progressBar.visibility = View.GONE
+                    if (!it.data.isNullOrEmpty()) {
+                        var items = ArrayList<Any>()
+                        items.addAll(ArrayList(it.data))
+                        items.add(adapter.ITEM_TYPE_BOTTOMSPACE_LAYOUT)
+                        adapter.setItems(items)
+
+
+                    } else {
+                        Timber.e("getSearchEndpoint.observe: SUCCESS tapi null")
+                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                    }
+                }
+                Resource.Status.ERROR -> {
+                    viewbinding.progressBar.visibility = View.GONE
+                    Timber.e("getSearchEndpoint.observe: error")
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                }
+                Resource.Status.LOADING -> {
+                    Timber.e("getSearchEndpoint.observe: LOADING")
+                    viewbinding.progressBar.visibility = View.VISIBLE
+                }
+            }
+        })
     }
 
     override fun onClickedDetailCompany() {

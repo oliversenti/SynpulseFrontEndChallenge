@@ -45,7 +45,7 @@
             android:id="@+id/btn_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/grey"
             android:gravity="center"
             android:text="@string/detail" />
 
@@ -58,7 +58,7 @@
             android:id="@+id/btn_follow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/grey"
             android:gravity="center"
             android:text="@string/follow" />
 

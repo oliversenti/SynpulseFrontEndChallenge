@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.haryop.synpulsefrontendchallenge.AboutFragment
+import com.haryop.synpulsefrontendchallenge.ui.AboutFragment
 import com.haryop.synpulsefrontendchallenge.R
 import com.haryop.synpulsefrontendchallenge.databinding.ActivityMainBinding
 import com.haryop.synpulsefrontendchallenge.ui.companylist.BrowseCompanyFragment

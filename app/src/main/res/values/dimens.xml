@@ -20,4 +20,6 @@
     <dimen name="grid_spacing">1dp</dimen>
     <dimen name="tab_height">50dp</dimen>
 
+    <dimen name="bottomspace">75dp</dimen>
+
 </resources>

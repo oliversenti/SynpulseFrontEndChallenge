@@ -22,7 +22,7 @@
     <string name="sign_up_now">Sign Up Now</string>
     <string name="sign_up_copytext">register your username and phone number to get access to the latest information of financial instruments</string>
 
-    <string name="sign_out">Sign Out</string>
+    <string name="sign_out"><u>Sign Out</u></string>
 
     <string name="phone_no">Your Phone Number</string>
     <string name="username">Your Username</string>
@@ -41,6 +41,7 @@
     <string name="watchlist_title">Your Watchlist</string>
 
     <string name="search">Search</string>
+    <string name="search_hint">Search symbols e.g. AAPL, MSFT, NFLX</string>
     <string name="search_copytext">Search your interests to follow on the NYSE/Nasdaq stock exchanges, learn more information about the stocks, and add them to your portfolio</string>
 
 

@@ -57,7 +57,7 @@
 
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.haryop.synpulsefrontendchallenge.AboutFragment"
+        android:name="com.haryop.synpulsefrontendchallenge.ui.AboutFragment"
         android:label="About"
         tools:layout="@layout/fragment_about"></fragment>
 

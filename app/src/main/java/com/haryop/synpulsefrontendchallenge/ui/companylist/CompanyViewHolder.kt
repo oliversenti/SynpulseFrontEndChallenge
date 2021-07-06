@@ -5,6 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.haryop.synpulsefrontendchallenge.R
 import com.haryop.synpulsefrontendchallenge.data.CompanyListItemData
+import com.haryop.synpulsefrontendchallenge.data.entities.SearchEndpointEntity
 import com.haryop.synpulsefrontendchallenge.databinding.ItemCompanyListBinding
 
 class CompanyViewHolder(
@@ -13,9 +14,9 @@ class CompanyViewHolder(
 ) :
     RecyclerView.ViewHolder(itemBinding.root) {
 
-    private lateinit var company: CompanyListItemData
+    private lateinit var company: SearchEndpointEntity
 
-    fun bind(item: CompanyListItemData) = with(itemBinding) {
+    fun bind(item: SearchEndpointEntity) = with(itemBinding) {
         company = item
         symbol.text = item.symbol
         name.text = item.name
@@ -24,11 +25,11 @@ class CompanyViewHolder(
         btnFollow.setOnClickListener {
             if(btnFollow.text.equals(btnFollow.context.resources.getString(R.string.follow))){
                 btnFollow.text = btnFollow.context.resources.getString(R.string.followed)
-                btnFollow.setBackgroundColor(btnFollow.context.resources.getColor(R.color.dark_orange))
+                btnFollow.setBackgroundColor(btnFollow.context.resources.getColor(R.color.light_grey))
                 listener.onClickedFollowCompany()
             }else{
                 btnFollow.text = btnFollow.context.resources.getString(R.string.follow)
-                btnFollow.setBackgroundColor(btnFollow.context.resources.getColor(R.color.orange))
+                btnFollow.setBackgroundColor(btnFollow.context.resources.getColor(R.color.grey))
                 listener.onClickedFollowCompany()
             }
         }

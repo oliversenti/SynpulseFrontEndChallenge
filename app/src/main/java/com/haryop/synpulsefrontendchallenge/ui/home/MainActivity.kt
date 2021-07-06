@@ -8,12 +8,13 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.haryop.synpulsefrontendchallenge.AboutFragment
+import com.haryop.synpulsefrontendchallenge.ui.AboutFragment
+import com.haryop.synpulsefrontendchallenge.ui.LandingActivity
 import com.haryop.synpulsefrontendchallenge.R
 import com.haryop.synpulsefrontendchallenge.databinding.ActivityMainBinding
-import com.haryop.synpulsefrontendchallenge.ui.companylist.BrowseCompanyFragment
 import com.haryop.synpulsefrontendchallenge.ui.home.dashboard.DashboardFragment
 import com.haryop.synpulsefrontendchallenge.utils.BaseActivityBinding
+import com.haryop.synpulsefrontendchallenge.utils.ConstantsObj
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -55,16 +56,16 @@ class MainActivity : BaseActivityBinding<ActivityMainBinding>() {
     }
 
     fun openAboutActivity() {
-        var intent = Intent(this@MainActivity, AboutFragment::class.java)
+        var intent = Intent(this, LandingActivity::class.java)
+        intent.putExtra(ConstantsObj.KEY_TARGET_ACTIVITY, ConstantsObj.VALUE_PROFILE_ACTIVITY )
         startActivity(intent)
     }
 
     fun openBrowseFIActivity() {
-        var intent = Intent(this@MainActivity, BrowseCompanyFragment::class.java)
+        var intent = Intent(this, LandingActivity::class.java)
+        intent.putExtra(ConstantsObj.KEY_TARGET_ACTIVITY, ConstantsObj.VALUE_BROWSECOMP_ACTIVITY )
         startActivity(intent)
     }
-
-
 
     lateinit var dashboardFragment: DashboardFragment
     lateinit var portfolioFragment: PortfolioFragment

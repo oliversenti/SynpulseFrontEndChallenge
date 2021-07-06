@@ -1,4 +1,4 @@
-package com.haryop.synpulsefrontendchallenge
+package com.haryop.synpulsefrontendchallenge.ui
 
 import android.content.Intent
 import android.view.LayoutInflater
