@@ -1,5 +1,7 @@
 # Synpulse Front End Challenge
 
+<img src="https://github.com/CumiTerbang/SynpulseFrontEndChallenge/blob/master/readme_assets/screenshot_1.jpg" width="200" height="355,56"> <img src="https://github.com/CumiTerbang/SynpulseFrontEndChallenge/blob/master/readme_assets/screenshot_2.jpg" width="200" height="355,56">
+
 my approach for SynpulseTechnology's Qualification Test Frontend Developer by making an android application based on the requirement as the solution
 
 Click [here](https://drive.google.com/file/d/1QiGAvMRGAHhUvlov-SMTxuGIHOI6AJk3/view?usp=sharing) to download the app
