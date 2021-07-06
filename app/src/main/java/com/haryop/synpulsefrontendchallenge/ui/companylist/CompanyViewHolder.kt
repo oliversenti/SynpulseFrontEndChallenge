@@ -21,7 +21,7 @@ class CompanyViewHolder(
         symbol.text = item.symbol
         name.text = item.name
 
-        btnDetail.setOnClickListener { listener.onClickedDetailCompany() }
+        btnDetail.setOnClickListener { listener.onClickedDetailCompany(item.symbol, item.name) }
         btnFollow.setOnClickListener {
             if(btnFollow.text.equals(btnFollow.context.resources.getString(R.string.follow))){
                 btnFollow.text = btnFollow.context.resources.getString(R.string.followed)

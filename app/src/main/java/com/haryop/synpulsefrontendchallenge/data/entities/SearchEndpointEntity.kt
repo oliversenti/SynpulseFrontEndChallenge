@@ -11,4 +11,4 @@ data class SearchEndpointEntity(
     @SerializedName("6. marketClose") val marketClose: String,
     @SerializedName("7. timezone") val timezone: String,
     @SerializedName("8. currency") val currency: String,
-    @SerializedName("8. matchScore") val matchScore: String)
+    @SerializedName("9. matchScore") val matchScore: String)

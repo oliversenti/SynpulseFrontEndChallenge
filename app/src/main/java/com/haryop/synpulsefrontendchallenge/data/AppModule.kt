@@ -2,9 +2,9 @@ package com.haryop.synpulsefrontendchallenge.data
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.haryop.synpulsefrontendchallenge.data.remote.SearchEndpointRemoteDataSource
-import com.haryop.synpulsefrontendchallenge.data.remote.SearchEndpointService
-import com.haryop.synpulsefrontendchallenge.data.repository.SearchEndpointsRepository
+import com.haryop.synpulsefrontendchallenge.data.remote.AlphaVantageRemoteDataSource
+import com.haryop.synpulsefrontendchallenge.data.remote.AlphaVantageService
+import com.haryop.synpulsefrontendchallenge.data.repository.AlphaVintageRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,7 +20,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class) //ApplicationComponent ny adeprecated diganti jadi SingletonComponent
 object AppModule {
 
-    fun logOkHttplient():OkHttpClient {
+    fun logOkHttplient(): OkHttpClient {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
@@ -40,36 +40,19 @@ object AppModule {
     fun provideGson(): Gson = GsonBuilder().create()
 
     @Provides
-    fun provideSearchEndpoint(retrofit: Retrofit): SearchEndpointService =
-        retrofit.create(SearchEndpointService::class.java)
+    fun provideSearchEndpoint(retrofit: Retrofit): AlphaVantageService =
+        retrofit.create(AlphaVantageService::class.java)
 
     @Singleton
     @Provides
-    fun provideSearchEndpointRemoteDataSource(searchEndpointService: SearchEndpointService) =
-        SearchEndpointRemoteDataSource(searchEndpointService)
-
-//    @Singleton
-//    @Provides
-//    fun provideDatabase(@ApplicationContext appContext: Context) =
-//        AppDatabase.getDatabase(appContext)
-//
-//    @Singleton
-//    @Provides
-//    fun provideCharacterDao(db: AppDatabase) = db.characterDao()
-
-//    @Singleton
-//    @Provides
-//    fun provideRepository(
-//        remoteDataSource: CharacterRemoteDataSource,
-//        localDataSource: CharacterDao
-//    ) =
-//        CharacterRepository(remoteDataSource, localDataSource)
+    fun provideSearchEndpointRemoteDataSource(alphaVantageService: AlphaVantageService) =
+        AlphaVantageRemoteDataSource(alphaVantageService)
 
     @Singleton
     @Provides
     fun provideRepository(
-        remoteDataSource: SearchEndpointRemoteDataSource
+        remoteDataSource: AlphaVantageRemoteDataSource
     ) =
-        SearchEndpointsRepository(remoteDataSource)
+        AlphaVintageRepository(remoteDataSource)
 
 }

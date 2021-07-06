@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -106,8 +107,11 @@ class BrowseCompanyFragment : BaseFragmentBinding<FragmentBrowseCompanyBinding>(
         })
     }
 
-    override fun onClickedDetailCompany() {
-        findNavController().navigate(R.id.action_itemcompany_to_detail)
+    override fun onClickedDetailCompany(symbol: String, name: String) {
+        findNavController().navigate(
+            R.id.action_itemcompany_to_detail,
+            bundleOf("symbol" to symbol, "name" to name)
+        )
     }
 
     override fun onClickedFollowCompany() {

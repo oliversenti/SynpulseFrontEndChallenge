@@ -12,7 +12,7 @@ class CompanyListAdapter(private val listener: CompanyItemListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     interface CompanyItemListener {
-        fun onClickedDetailCompany()
+        fun onClickedDetailCompany(symbol: String, name:String)
         fun onClickedFollowCompany()
     }
 
@@ -38,13 +38,21 @@ class CompanyListAdapter(private val listener: CompanyItemListener) :
         when (viewType) {
             ITEM_TYPE_SEARCHITEM_LAYOUT -> {
                 val binding: ItemCompanyListBinding =
-                    ItemCompanyListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                    ItemCompanyListBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
                 return CompanyViewHolder(binding, listener)
             }
 
             else -> {
                 val binding: ItemBottomSpaceBinding =
-                    ItemBottomSpaceBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                    ItemBottomSpaceBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
                 return BottomspaceViewHolder(binding)
             }
         }
