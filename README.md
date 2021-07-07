@@ -15,7 +15,6 @@ Click [here](https://drive.google.com/file/d/1QiGAvMRGAHhUvlov-SMTxuGIHOI6AJk3/v
 ## Build App requirements
 - Recomended using Android Studio 4.1.2
 - Using Kotlin 1.3.72
-- Using MVVM design pattern
 
 ## Instructions
 1. Clone from this repository
@@ -29,7 +28,7 @@ Click [here](https://drive.google.com/file/d/1QiGAvMRGAHhUvlov-SMTxuGIHOI6AJk3/v
 4. Build and deploy the app module
 
 ## Code Design & Structure
-This project directory consist of 3 directories:
+This project is using MVVM design pattern. The project directory consist of 3 directories:
 1. **data**: The M (Model) in MVVM. Where we perform data operations.
 2. **ui**: Fragments and ViewModels helping to display data to the user.
 3. **util**: Urilities directory for helper classes and functions.
