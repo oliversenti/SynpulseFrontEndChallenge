@@ -19,4 +19,5 @@ object ConstantsObj {
     const val ALPHAVANTAGE_APIKEY = "${APIKEY_Obj.YOUR_ALPHAVANTAGE_APIKEY}"
     const val ALPHAVANTAGE_BASEPARAM = "query?apikey=${ConstantsObj.ALPHAVANTAGE_APIKEY}"
 
+    const val KEY_ISLOGIN = "KEY_ISLOGIN"
 }

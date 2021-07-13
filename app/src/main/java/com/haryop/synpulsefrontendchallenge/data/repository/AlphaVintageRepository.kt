@@ -2,6 +2,7 @@ package com.haryop.synpulsefrontendchallenge.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+import com.haryop.synpulsefrontendchallenge.data.entities.DailyDataEntities
 import com.haryop.synpulsefrontendchallenge.data.entities.QuoteEndpointEntity
 import com.haryop.synpulsefrontendchallenge.data.entities.SearchEndpointEntities
 import com.haryop.synpulsefrontendchallenge.data.entities.SearchEndpointEntity
@@ -48,6 +49,25 @@ class AlphaVintageRepository @Inject constructor(
         if (responseStatus.status == Resource.Status.SUCCESS) {
             val quote = responseStatus.data as QuoteEndpointEntity
             emit(Resource.success(quote))
+
+        } else if (responseStatus.status == Resource.Status.ERROR) {
+            emit(Resource.error(responseStatus.message!!))
+        }
+    }
+
+    fun getDailyData(symbol: String) = performGetDailyDataOperation(
+        networkCall = { remoteDataSource.getDailyData(symbol) }
+    )
+
+    fun <A> performGetDailyDataOperation(
+        networkCall: suspend () -> Resource<A>
+    ): LiveData<Resource<DailyDataEntities>> = liveData(Dispatchers.IO) {
+        emit(Resource.loading())
+
+        val responseStatus = networkCall.invoke()
+        if (responseStatus.status == Resource.Status.SUCCESS) {
+            val dailyDataEntities = (responseStatus.data as DailyDataEntities)
+            emit(Resource.success(dailyDataEntities))
 
         } else if (responseStatus.status == Resource.Status.ERROR) {
             emit(Resource.error(responseStatus.message!!))

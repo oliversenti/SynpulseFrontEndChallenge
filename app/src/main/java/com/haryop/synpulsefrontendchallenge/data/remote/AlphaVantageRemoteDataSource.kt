@@ -10,4 +10,6 @@ class AlphaVantageRemoteDataSource @Inject constructor(
 
     suspend fun getQuoteEndpoint(symbol: String) = getResult { alphaVantageService.quoteEndpoint(symbol) }
 
+    suspend fun getDailyData(symbol: String) = getResult { alphaVantageService.dailyData(symbol) }
+
 }

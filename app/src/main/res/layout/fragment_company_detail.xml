@@ -34,31 +34,30 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:ellipsize="end"
-                    android:maxLines="1"
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:textSize="@dimen/textsize_body" />
             </LinearLayout>
 
             <TextView
-                android:textColor="@color/green"
                 android:id="@+id/change_percent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="@color/green"
                 android:textSize="@dimen/textsize_title_big"
                 android:textStyle="bold" />
 
         </LinearLayout>
 
-        <ImageView
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/line_chart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.4"
-            android:background="@color/teal_200"
-            android:src="@mipmap/ic_launcher_foreground" />
+            android:layout_weight="0.4" />
 
         <Button
             android:layout_width="match_parent"

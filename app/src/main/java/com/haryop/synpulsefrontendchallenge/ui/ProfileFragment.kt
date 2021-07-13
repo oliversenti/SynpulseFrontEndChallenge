@@ -1,6 +1,8 @@
 package com.haryop.synpulsefrontendchallenge.ui
 
+import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,11 +26,11 @@ class ProfileFragment : BaseFragmentBinding<FragmentProfileBinding>() {
     }
 
     fun setUpAction(view: View) = with(viewbinding) {
-        about.setOnClickListener { openAbout()}
+        about.setOnClickListener { openAbout() }
         signOut.setOnClickListener { onSignOut(view) }
     }
 
-    fun openAbout(){
+    fun openAbout() {
         findNavController().navigate(R.id.action_profile_to_about)
     }
 
@@ -47,9 +49,14 @@ class ProfileFragment : BaseFragmentBinding<FragmentProfileBinding>() {
             "Sign Out"
         ) { dialog, id ->
             // User clicked Update Now button
+            clearSharedPref()
+
             var intent = Intent(activity, LandingActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            intent.putExtra(ConstantsObj.KEY_TARGET_ACTIVITY, ConstantsObj.VALUE_TITLESCREEN_ACTIVITY )
+            intent.putExtra(
+                ConstantsObj.KEY_TARGET_ACTIVITY,
+                ConstantsObj.VALUE_TITLESCREEN_ACTIVITY
+            )
             activity?.startActivity(intent)
 
         }
@@ -64,4 +71,14 @@ class ProfileFragment : BaseFragmentBinding<FragmentProfileBinding>() {
         builder.show()
     }
 
+    fun clearSharedPref() {
+        val sharedPref = activity?.getSharedPreferences(activity?.packageName, Context.MODE_PRIVATE)
+        with(sharedPref?.edit()) {
+            this?.remove(ConstantsObj.KEY_ISLOGIN)
+            this?.clear()
+            this?.commit()
+
+            Log.e("profile fragment", "sign out")
+        }
+    }
 }
