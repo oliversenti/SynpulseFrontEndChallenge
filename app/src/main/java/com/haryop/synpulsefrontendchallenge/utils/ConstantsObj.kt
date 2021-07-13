@@ -16,7 +16,7 @@ object ConstantsObj {
     const val VALUE_WELCOMESEARCH_ACTIVITY = 5
     const val VALUE_PROFILE_ACTIVITY = 6
 
-    const val ALPHAVANTAGE_APIKEY = "demo"
+    const val ALPHAVANTAGE_APIKEY = "${APIKEY_Obj.YOUR_ALPHAVANTAGE_APIKEY}"
     const val ALPHAVANTAGE_BASEPARAM = "query?apikey=${ConstantsObj.ALPHAVANTAGE_APIKEY}"
 
 }
