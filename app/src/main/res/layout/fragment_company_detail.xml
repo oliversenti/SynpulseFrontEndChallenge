@@ -42,6 +42,10 @@
                     android:textSize="@dimen/textsize_body" />
             </LinearLayout>
 
+            <View
+                android:layout_width="@dimen/padding_16"
+                android:layout_height="@dimen/padding_16"/>
+
             <TextView
                 android:id="@+id/change_percent"
                 android:layout_width="wrap_content"
@@ -55,6 +59,9 @@
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/line_chart"
+            android:layout_marginTop="@dimen/padding_16"
+            android:layout_marginLeft="@dimen/padding_8"
+            android:layout_marginRight="@dimen/padding_8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.4" />
