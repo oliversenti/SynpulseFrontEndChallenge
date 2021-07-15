@@ -5,9 +5,13 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.haryop.synpulsefrontendchallenge.R
 import com.haryop.synpulsefrontendchallenge.databinding.FragmentSignupBinding
+import com.haryop.synpulsefrontendchallenge.ui.LandingActivity
 import com.haryop.synpulsefrontendchallenge.utils.BaseFragmentBinding
+import com.haryop.synpulsefrontendchallenge.utils.showToast
+
 
 class SignUpFragment : BaseFragmentBinding<FragmentSignupBinding>() {
+
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSignupBinding
         get() = FragmentSignupBinding::inflate
 
@@ -26,9 +30,13 @@ class SignUpFragment : BaseFragmentBinding<FragmentSignupBinding>() {
         }
     }
 
-    fun onRegister(){
-        findNavController().navigate(R.id.action_signup_to_otp)
+    fun onRegister()=with(viewbinding){
+        val phonenumber = phoneNumberField.text.toString()
+        if (phonenumber.isNullOrEmpty() || phonenumber.equals("")){
+            showToast("Phone number is empty" )
+            return
+        }
+        (activity as LandingActivity).onSendVerificationCode(phonenumber, R.id.action_signup_to_otp)
     }
-
 
 }
